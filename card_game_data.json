@@ -1,0 +1,2818 @@
+{
+  "meta": {
+    "version": "1.0",
+    "total_cards": 100,
+    "categories": {
+      "physical": {
+        "label": "물리 공격",
+        "icon": "⚔️",
+        "count": 28
+      },
+      "magic": {
+        "label": "마법 공격",
+        "icon": "🔮",
+        "count": 28
+      },
+      "support": {
+        "label": "지원",
+        "icon": "💚",
+        "count": 17
+      },
+      "trap": {
+        "label": "함정/설치",
+        "icon": "🪤",
+        "count": 10
+      },
+      "utility": {
+        "label": "유틸리티",
+        "icon": "🔧",
+        "count": 17
+      }
+    },
+    "status_effects": {
+      "bleed": {
+        "icon": "🩸",
+        "name": "출혈",
+        "name_en": "Bleed",
+        "type": "debuff",
+        "description": "턴 종료 시 도트 데미지. 중첩 가능 (중첩당 도트 +1)"
+      },
+      "poison": {
+        "icon": "☠️",
+        "name": "중독",
+        "name_en": "Poison",
+        "type": "debuff",
+        "description": "매 턴 도트 데미지. 중첩 가능 (중첩당 도트 +1)"
+      },
+      "freeze": {
+        "icon": "🧊",
+        "name": "빙결",
+        "name_en": "Freeze",
+        "type": "debuff",
+        "description": "행동 완전 불가 (이동·공격 모두 봉쇄)"
+      },
+      "burn": {
+        "icon": "🔥",
+        "name": "화상",
+        "name_en": "Burn",
+        "type": "debuff",
+        "description": "매 턴 도트 데미지. 중첩 가능. 화상 폭발로 즉발 데미지 전환 가능"
+      },
+      "fear": {
+        "icon": "😱",
+        "name": "공포",
+        "name_en": "Fear",
+        "type": "debuff",
+        "description": "적이 자발적으로 1칸 후퇴"
+      },
+      "shock": {
+        "icon": "⚡",
+        "name": "감전",
+        "name_en": "Shock",
+        "type": "debuff",
+        "description": "행동 시 50% 확률로 실패"
+      },
+      "bind": {
+        "icon": "🔗",
+        "name": "속박",
+        "name_en": "Bind",
+        "type": "debuff",
+        "description": "이동 불가 (공격은 가능). 넉백 면역"
+      },
+      "mark": {
+        "icon": "💀",
+        "name": "표식",
+        "name_en": "Mark",
+        "type": "debuff",
+        "description": "다음에 받는 데미지 +3. 일회성 소모"
+      },
+      "weaken": {
+        "icon": "😵",
+        "name": "약화",
+        "name_en": "Weaken",
+        "type": "debuff",
+        "description": "공격력 감소 (-1~-2)"
+      },
+      "confuse": {
+        "icon": "👁️",
+        "name": "혼란",
+        "name_en": "Confuse",
+        "type": "debuff",
+        "description": "행동 시 50% 확률로 실패"
+      },
+      "defense_down": {
+        "icon": "🛡️⬇",
+        "name": "방어력 감소",
+        "name_en": "Defense Down",
+        "type": "debuff",
+        "description": "방어력 수치 감소"
+      },
+      "knockback": {
+        "icon": "🌀",
+        "name": "넉백",
+        "name_en": "Knockback",
+        "type": "field",
+        "description": "적을 뒤로 N칸 강제이동"
+      },
+      "pull": {
+        "icon": "🧲",
+        "name": "끌어당김",
+        "name_en": "Pull",
+        "type": "field",
+        "description": "적을 앞으로 강제이동"
+      },
+      "reflect": {
+        "icon": "🔄",
+        "name": "반사",
+        "name_en": "Reflect",
+        "type": "field",
+        "description": "적이 공격 시 자신에게도 데미지"
+      },
+      "accuracy_down": {
+        "icon": "🎯⬇",
+        "name": "명중률 감소",
+        "name_en": "Accuracy Down",
+        "type": "debuff",
+        "description": "적의 명중률 감소"
+      }
+    },
+    "buff_effects": {
+      "heal": {
+        "icon": "❤️",
+        "name": "HP 회복",
+        "name_en": "Heal",
+        "description": "플레이어 HP 직접 회복"
+      },
+      "lifesteal": {
+        "icon": "💉",
+        "name": "흡혈",
+        "name_en": "Lifesteal",
+        "description": "가한 데미지의 일정 비율을 HP로 회복"
+      },
+      "shield": {
+        "icon": "🛡️",
+        "name": "피해 감소",
+        "name_en": "Shield",
+        "description": "받는 피해를 일정량 감소"
+      },
+      "atk_up": {
+        "icon": "💪",
+        "name": "공격력 증가",
+        "name_en": "ATK Up",
+        "description": "이번 턴 아군 카드 데미지 증가"
+      },
+      "immune": {
+        "icon": "🚫",
+        "name": "피해 무효",
+        "name_en": "Immune",
+        "description": "이번 턴 받는 피해 완전 무효"
+      },
+      "draw": {
+        "icon": "🃏",
+        "name": "추가 드로우",
+        "name_en": "Draw",
+        "description": "카드를 추가로 뽑음"
+      },
+      "energy_gain": {
+        "icon": "⚡➕",
+        "name": "에너지 획득",
+        "name_en": "Energy Gain",
+        "description": "사용 가능한 에너지 추가"
+      },
+      "cost_reduce": {
+        "icon": "⚡➖",
+        "name": "코스트 할인",
+        "name_en": "Cost Reduce",
+        "description": "카드 사용 코스트 감소"
+      },
+      "recycle": {
+        "icon": "♻️",
+        "name": "카드 회수",
+        "name_en": "Recycle",
+        "description": "사용한 카드를 패로 복귀"
+      },
+      "stealth": {
+        "icon": "🌫️",
+        "name": "은폐",
+        "name_en": "Stealth",
+        "description": "원거리 공격 대상이 되지 않음"
+      },
+      "burn_burst": {
+        "icon": "🔥💥",
+        "name": "화상 폭발",
+        "name_en": "Burn Burst",
+        "description": "화상 누적 도트를 즉발 데미지로 전환"
+      },
+      "status_burst": {
+        "icon": "☠️💥",
+        "name": "상태이상 폭발",
+        "name_en": "Status Burst",
+        "description": "남은 상태이상 턴 수를 즉발 데미지로 전환"
+      }
+    }
+  },
+  "cards": [
+    {
+      "id": "A01",
+      "name": "배달 드론 36호",
+      "name_en": "Delivery Drone No.36",
+      "category": "physical",
+      "cost": 1,
+      "description": "택배를 배달하려다 오배송된 결함 드론. 상자를 던지는 건 잘한다.",
+      "ability": "임의의 적 2명에게 1 데미지 (무작위)",
+      "damage": 1,
+      "target": {
+        "type": "random",
+        "count": 2
+      },
+      "effects": [],
+      "tags": [
+        "multi_hit",
+        "random"
+      ]
+    },
+    {
+      "id": "A02",
+      "name": "사이버암 쥬디",
+      "name_en": "Cyber-Arm Judy",
+      "category": "physical",
+      "cost": 1,
+      "description": "왼팔만 기계화한 스트리트 댄서. 타격에 리듬이 있다.",
+      "ability": "앞열 적 1명에게 2 데미지 + 출혈 (1턴, 턴 종료 시 1 도트)",
+      "damage": 2,
+      "target": {
+        "type": "front_row",
+        "count": 1
+      },
+      "effects": [
+        {
+          "type": "bleed",
+          "stacks": 1,
+          "duration": 1,
+          "dot_per_stack": 1
+        }
+      ],
+      "tags": [
+        "bleed_synergy"
+      ]
+    },
+    {
+      "id": "A03",
+      "name": "녹슨 가위 잭토끼",
+      "name_en": "Rusty Scissors Jack Rabbit",
+      "category": "physical",
+      "cost": 1,
+      "description": "폐공장에서 깨어난 기계 토끼. 녹슨 가위가 앞발 대신 달려있다.",
+      "ability": "앞열 적 1명에게 3 데미지",
+      "damage": 3,
+      "target": {
+        "type": "front_row",
+        "count": 1
+      },
+      "effects": [],
+      "tags": [
+        "simple_damage"
+      ]
+    },
+    {
+      "id": "A04",
+      "name": "하수구의 왕 크록",
+      "name_en": "Sewer King Croc",
+      "category": "physical",
+      "cost": 2,
+      "description": "도시 지하를 지배하는 악어인간. 턱 한 번이면 철골도 찌그러진다.",
+      "ability": "앞열 적 1명에게 4 데미지, 방어력 -1 (2턴)",
+      "damage": 4,
+      "target": {
+        "type": "front_row",
+        "count": 1
+      },
+      "effects": [
+        {
+          "type": "defense_down",
+          "value": -1,
+          "duration": 2
+        }
+      ],
+      "tags": [
+        "armor_break"
+      ]
+    },
+    {
+      "id": "A05",
+      "name": "유령선장 바르나클",
+      "name_en": "Ghost Captain Barnacle",
+      "category": "physical",
+      "cost": 2,
+      "description": "난파선과 함께 가라앉았다 닻을 들고 다시 일어선 해골 선장.",
+      "ability": "지정 레인 적 1명에게 3 데미지 + 1칸 넉백",
+      "damage": 3,
+      "target": {
+        "type": "lane_select",
+        "count": 1
+      },
+      "effects": [
+        {
+          "type": "knockback",
+          "distance": 1
+        }
+      ],
+      "tags": [
+        "knockback",
+        "trap_synergy"
+      ]
+    },
+    {
+      "id": "A06",
+      "name": "섹시 리퍼 모델-09",
+      "name_en": "Sexy Reaper Model-09",
+      "category": "physical",
+      "cost": 2,
+      "description": "사신 컨셉의 전투 안드로이드. 허리를 비틀며 낫을 휘두르는 모션이 치명적이다.",
+      "ability": "앞열 적 2명에게 각 2 데미지",
+      "damage": 2,
+      "target": {
+        "type": "front_row",
+        "count": 2
+      },
+      "effects": [],
+      "tags": [
+        "multi_hit"
+      ]
+    },
+    {
+      "id": "A07",
+      "name": "떠돌이 요리사 라탕",
+      "name_en": "Wandering Chef Ratang",
+      "category": "physical",
+      "cost": 2,
+      "description": "프라이팬과 식칼이 무기인 쥐 수인. 적을 요리 재료로 본다.",
+      "ability": "적 1명에게 3 데미지 + 중독 (2턴, 턴당 1 도트)",
+      "damage": 3,
+      "target": {
+        "type": "front_row",
+        "count": 1
+      },
+      "effects": [
+        {
+          "type": "poison",
+          "stacks": 1,
+          "duration": 2,
+          "dot_per_stack": 1
+        }
+      ],
+      "tags": [
+        "poison_synergy"
+      ]
+    },
+    {
+      "id": "A08",
+      "name": "강철지빠귀 틴코",
+      "name_en": "Steel Thrush Tinco",
+      "category": "physical",
+      "cost": 2,
+      "description": "철로 된 깃털을 쏘는 기계 새. 빠르고 정확하다.",
+      "ability": "지정 레인 적 1명에게 5 데미지 (원거리)",
+      "damage": 5,
+      "target": {
+        "type": "lane_select",
+        "count": 1,
+        "range": "ranged"
+      },
+      "effects": [],
+      "tags": [
+        "ranged",
+        "snipe"
+      ]
+    },
+    {
+      "id": "A09",
+      "name": "폭음의 마에스트라",
+      "name_en": "Sonic Maestra",
+      "category": "physical",
+      "cost": 3,
+      "description": "음파를 물리 충격으로 변환하는 오페라 가수 로봇. 고음이 무기다.",
+      "ability": "지정 레인 앞 2명에게 각 3 데미지 + 1칸 넉백",
+      "damage": 3,
+      "target": {
+        "type": "lane_front",
+        "count": 2
+      },
+      "effects": [
+        {
+          "type": "knockback",
+          "distance": 1
+        }
+      ],
+      "tags": [
+        "multi_hit",
+        "knockback",
+        "trap_synergy"
+      ]
+    },
+    {
+      "id": "A10",
+      "name": "용접공 빅 모마",
+      "name_en": "Welder Big Moma",
+      "category": "physical",
+      "cost": 3,
+      "description": "팔 네 개 달린 거대 곤충 여왕. 쇳물을 씹어 뱉어 적을 녹인다.",
+      "ability": "앞열 적 1명에게 7 데미지",
+      "damage": 7,
+      "target": {
+        "type": "front_row",
+        "count": 1
+      },
+      "effects": [],
+      "tags": [
+        "heavy_hitter"
+      ]
+    },
+    {
+      "id": "A11",
+      "name": "한손검사 발렌틴",
+      "name_en": "One-Handed Swordsman Valentin",
+      "category": "physical",
+      "cost": 3,
+      "description": "외눈박이 검은 고양이. 사람 크기 검을 한 앞발로 휘두르며 기품이 넘친다.",
+      "ability": "적 1명에게 5 데미지, 표식 상태면 +4 추가",
+      "damage": 5,
+      "target": {
+        "type": "front_row",
+        "count": 1
+      },
+      "effects": [],
+      "conditional": {
+        "if_target_has": "mark",
+        "bonus_damage": 4
+      },
+      "tags": [
+        "mark_synergy",
+        "finisher"
+      ]
+    },
+    {
+      "id": "A12",
+      "name": "산업폐기물 슬러지킹",
+      "name_en": "Industrial Waste Sludge King",
+      "category": "physical",
+      "cost": 3,
+      "description": "유독 폐수가 의식을 가진 슬라임. 때리면 독이 튄다.",
+      "ability": "지정 레인 전체 관통, 각 적에게 2 데미지 + 중독 (1턴 1 도트)",
+      "damage": 2,
+      "target": {
+        "type": "lane_pierce",
+        "count": "all"
+      },
+      "effects": [
+        {
+          "type": "poison",
+          "stacks": 1,
+          "duration": 1,
+          "dot_per_stack": 1
+        }
+      ],
+      "tags": [
+        "pierce",
+        "poison_synergy",
+        "aoe"
+      ]
+    },
+    {
+      "id": "A13",
+      "name": "궤도위성 타이런트",
+      "name_en": "Orbital Satellite Tyrant",
+      "category": "physical",
+      "cost": 3,
+      "description": "자아 각성한 군사위성. 궤도를 이탈해 잔해를 투하한다.",
+      "ability": "모든 레인 앞열 적에게 2 데미지 + 임의 1명에게 추가 3 데미지",
+      "damage": 2,
+      "target": {
+        "type": "all_front_row"
+      },
+      "effects": [
+        {
+          "type": "bonus_random",
+          "bonus_damage": 3,
+          "count": 1
+        }
+      ],
+      "tags": [
+        "aoe",
+        "random"
+      ]
+    },
+    {
+      "id": "A14",
+      "name": "바운티헌터 네브",
+      "name_en": "Bounty Hunter Nev",
+      "category": "physical",
+      "cost": 3,
+      "description": "현상금 사냥꾼 사이보그. 표적만 추적하는 유도탄을 장전한다.",
+      "ability": "표식 상태 적 1명에게 8 데미지, 표식 없으면 4 데미지",
+      "damage": 4,
+      "target": {
+        "type": "front_row",
+        "count": 1
+      },
+      "effects": [],
+      "conditional": {
+        "if_target_has": "mark",
+        "bonus_damage": 4
+      },
+      "tags": [
+        "mark_synergy",
+        "finisher"
+      ]
+    },
+    {
+      "id": "A15",
+      "name": "천장거미 네스토르",
+      "name_en": "Ceiling Spider Nestor",
+      "category": "physical",
+      "cost": 4,
+      "description": "천장에서 실로 적을 감아 끌어당기는 거대 기계거미.",
+      "ability": "지정 레인 맨 뒤 적 1명을 앞열 강제이동 + 5 데미지",
+      "damage": 5,
+      "target": {
+        "type": "lane_back",
+        "count": 1
+      },
+      "effects": [
+        {
+          "type": "pull",
+          "destination": "front_row"
+        }
+      ],
+      "tags": [
+        "pull",
+        "trap_synergy",
+        "position_control"
+      ]
+    },
+    {
+      "id": "A16",
+      "name": "쌍두사 헬가&올가",
+      "name_en": "Two-Headed Ogre Helga & Olga",
+      "category": "physical",
+      "cost": 4,
+      "description": "머리 둘 달린 오우거 자매. 싸우다가 적을 보면 힘을 합친다.",
+      "ability": "모든 레인 앞열에 4 데미지, 적이 1명뿐이면 10 데미지 집중",
+      "damage": 4,
+      "target": {
+        "type": "all_front_row"
+      },
+      "effects": [],
+      "conditional": {
+        "if_enemies_remaining": 1,
+        "override_damage": 10
+      },
+      "tags": [
+        "aoe",
+        "finisher"
+      ]
+    },
+    {
+      "id": "A17",
+      "name": "열차포 빅 베르타",
+      "name_en": "Rail Cannon Big Bertha",
+      "category": "physical",
+      "cost": 4,
+      "description": "퇴역 열차를 개조한 자주포 로봇. 한 발에 레인이 갈린다.",
+      "ability": "지정 레인 전체 관통 5 데미지 + 좌우 인접 레인 앞열 3 데미지",
+      "damage": 5,
+      "target": {
+        "type": "lane_pierce",
+        "count": "all"
+      },
+      "effects": [
+        {
+          "type": "splash",
+          "adjacent_lanes": true,
+          "splash_damage": 3,
+          "splash_target": "front_row"
+        }
+      ],
+      "tags": [
+        "pierce",
+        "splash",
+        "aoe"
+      ]
+    },
+    {
+      "id": "A18",
+      "name": "연쇄절단 체인소우",
+      "name_en": "Chain Cutter Chainsaw",
+      "category": "physical",
+      "cost": 4,
+      "description": "양팔이 전기톱인 광기의 마네킹. 웃음을 멈추지 않는다.",
+      "ability": "앞열 적 1명에게 6 데미지 + 출혈 2중첩 (턴당 2 도트, 2턴)",
+      "damage": 6,
+      "target": {
+        "type": "front_row",
+        "count": 1
+      },
+      "effects": [
+        {
+          "type": "bleed",
+          "stacks": 2,
+          "duration": 2,
+          "dot_per_stack": 1
+        }
+      ],
+      "tags": [
+        "bleed_synergy",
+        "heavy_hitter"
+      ]
+    },
+    {
+      "id": "A19",
+      "name": "갈고리손 후크맨",
+      "name_en": "Hook Hand Hookman",
+      "category": "physical",
+      "cost": 4,
+      "description": "양손이 갈고리인 서커스 단원. 적을 끌어당긴 뒤 찢어버린다.",
+      "ability": "지정 적 1명 앞열로 끌어당김 + 7 데미지",
+      "damage": 7,
+      "target": {
+        "type": "any",
+        "count": 1
+      },
+      "effects": [
+        {
+          "type": "pull",
+          "destination": "front_row"
+        }
+      ],
+      "tags": [
+        "pull",
+        "trap_synergy",
+        "position_control"
+      ]
+    },
+    {
+      "id": "A20",
+      "name": "블러드퀸 카르멘",
+      "name_en": "Blood Queen Carmen",
+      "category": "physical",
+      "cost": 5,
+      "description": "피 냄새에 미쳐가는 뱀파이어 검사. 출혈 상태인 적 앞에서 폭주한다.",
+      "ability": "적 1명에게 8 데미지, 출혈 상태면 +5 추가 + HP 3 회복",
+      "damage": 8,
+      "target": {
+        "type": "front_row",
+        "count": 1
+      },
+      "effects": [
+        {
+          "type": "lifesteal",
+          "flat_heal": 3,
+          "condition": "bleed"
+        }
+      ],
+      "conditional": {
+        "if_target_has": "bleed",
+        "bonus_damage": 5
+      },
+      "tags": [
+        "bleed_synergy",
+        "lifesteal",
+        "finisher"
+      ]
+    },
+    {
+      "id": "A21",
+      "name": "포식자 그라울",
+      "name_en": "Predator Growl",
+      "category": "physical",
+      "cost": 5,
+      "description": "전장을 뒤흔드는 거대 늑대인간. 달빛 아래에서 변신이 완성된다.",
+      "ability": "지정 레인 전체 관통 6 데미지 + 처치 시 추가 행동 1회",
+      "damage": 6,
+      "target": {
+        "type": "lane_pierce",
+        "count": "all"
+      },
+      "effects": [
+        {
+          "type": "on_kill",
+          "effect": "extra_action",
+          "count": 1
+        }
+      ],
+      "tags": [
+        "pierce",
+        "on_kill"
+      ]
+    },
+    {
+      "id": "A22",
+      "name": "킬러새틀라이트 레드아이",
+      "name_en": "Killer Satellite Red Eye",
+      "category": "physical",
+      "cost": 5,
+      "description": "궤도위성 타이런트의 상위 모델. 레이저 조준이 완료되면 끝이다.",
+      "ability": "위치 무관 적 1명에게 10 데미지",
+      "damage": 10,
+      "target": {
+        "type": "any",
+        "count": 1,
+        "range": "global"
+      },
+      "effects": [],
+      "tags": [
+        "snipe",
+        "heavy_hitter"
+      ]
+    },
+    {
+      "id": "A23",
+      "name": "자폭인형 봄바스틱",
+      "name_en": "Suicide Doll Bombastic",
+      "category": "physical",
+      "cost": 5,
+      "description": "안아달라고 다가오는 봉제인형. 폭발은 포옹 뒤에 온다.",
+      "ability": "지정 레인 앞 3칸 관통 7 데미지, 사용 후 다음 턴 드로우 -1",
+      "damage": 7,
+      "target": {
+        "type": "lane_front",
+        "count": 3,
+        "pierce": true
+      },
+      "effects": [
+        {
+          "type": "self_penalty",
+          "next_turn_draw": -1
+        }
+      ],
+      "tags": [
+        "pierce",
+        "self_penalty"
+      ]
+    },
+    {
+      "id": "A24",
+      "name": "심해포식자 어비스",
+      "name_en": "Deep Sea Predator Abyss",
+      "category": "physical",
+      "cost": 6,
+      "description": "심해에서 올라온 초거대 아귀. 입을 벌리면 레인 하나가 사라진다.",
+      "ability": "지정 레인 전체 관통 8 데미지 + 좌우 레인 앞열 4 데미지",
+      "damage": 8,
+      "target": {
+        "type": "lane_pierce",
+        "count": "all"
+      },
+      "effects": [
+        {
+          "type": "splash",
+          "adjacent_lanes": true,
+          "splash_damage": 4,
+          "splash_target": "front_row"
+        }
+      ],
+      "tags": [
+        "pierce",
+        "splash",
+        "aoe",
+        "heavy_hitter"
+      ]
+    },
+    {
+      "id": "A25",
+      "name": "멸망병기 오메가",
+      "name_en": "Doomsday Weapon Omega",
+      "category": "physical",
+      "cost": 7,
+      "description": "전쟁을 끝내기 위해 만들어진 최종 병기. 가동하면 아군도 떨린다.",
+      "ability": "모든 적에게 7 데미지 + 출혈 + 중독 각 1중첩",
+      "damage": 7,
+      "target": {
+        "type": "all_enemies"
+      },
+      "effects": [
+        {
+          "type": "bleed",
+          "stacks": 1,
+          "duration": 2,
+          "dot_per_stack": 1
+        },
+        {
+          "type": "poison",
+          "stacks": 1,
+          "duration": 2,
+          "dot_per_stack": 1
+        }
+      ],
+      "tags": [
+        "aoe",
+        "bleed_synergy",
+        "poison_synergy",
+        "ultimate"
+      ]
+    },
+    {
+      "id": "A26",
+      "name": "킬힐 에이전트 나탈리",
+      "name_en": "Killer Heel Agent Natalie",
+      "category": "physical",
+      "cost": 2,
+      "description": "12cm 킬힐을 신고 전장을 누비는 스파이. 뒤꿈치 한 방에 장갑판이 뚫린다. 걸음걸이 자체가 무기이자 워킹.",
+      "ability": "앞열 적 1명에게 5 데미지 + 방어력 -2 (2턴), 이번 턴 다른 물리 카드 데미지 +1",
+      "damage": 5,
+      "target": {
+        "type": "front_row",
+        "count": 1
+      },
+      "effects": [
+        {
+          "type": "defense_down",
+          "value": -2,
+          "duration": 2
+        },
+        {
+          "type": "team_buff",
+          "physical_damage_bonus": 1,
+          "duration": "this_turn"
+        }
+      ],
+      "tags": [
+        "armor_break",
+        "team_buff",
+        "sexy"
+      ]
+    },
+    {
+      "id": "A27",
+      "name": "쌍권총 로제",
+      "name_en": "Dual Pistol Rosé",
+      "category": "physical",
+      "cost": 3,
+      "description": "등이 훤히 파인 드레스에 허벅지 홀스터를 찬 현상금 사냥꾼. 총구에서 장미향이 난다.",
+      "ability": "표식 상태 적 2명에게 각 4 데미지, 표식 없으면 임의 적 2명에게 각 2 데미지",
+      "damage": 2,
+      "target": {
+        "type": "marked_priority",
+        "count": 2
+      },
+      "effects": [],
+      "conditional": {
+        "if_target_has": "mark",
+        "override_damage": 4
+      },
+      "tags": [
+        "mark_synergy",
+        "multi_hit",
+        "sexy"
+      ]
+    },
+    {
+      "id": "A28",
+      "name": "강철 발키리 시그룬",
+      "name_en": "Steel Valkyrie Sigrún",
+      "category": "physical",
+      "cost": 5,
+      "description": "전신 금속 갑옷 아래 완벽한 전사의 육체. 창을 던지면 번개가 따라온다. 날개 달린 투구만 쓴 채 돌진한다.",
+      "ability": "지정 레인 전체 관통 5 데미지 + 감전 (1턴), 처치한 적 1명당 HP +2",
+      "damage": 5,
+      "target": {
+        "type": "lane_pierce",
+        "count": "all"
+      },
+      "effects": [
+        {
+          "type": "shock",
+          "duration": 1
+        },
+        {
+          "type": "on_kill",
+          "effect": "heal",
+          "value": 2
+        }
+      ],
+      "tags": [
+        "pierce",
+        "shock_synergy",
+        "on_kill",
+        "sexy"
+      ]
+    },
+    {
+      "id": "M01",
+      "name": "튜브요정 피치",
+      "name_en": "Tube Fairy Peach",
+      "category": "magic",
+      "cost": 1,
+      "description": "수영 튜브를 타고 다니는 물의 요정. 귀엽지만 물줄기에 맞으면 꽤 아프다.",
+      "ability": "앞열 적 1명에게 1 데미지 + 빙결 (1턴)",
+      "damage": 1,
+      "target": {
+        "type": "front_row",
+        "count": 1
+      },
+      "effects": [
+        {
+          "type": "freeze",
+          "duration": 1
+        }
+      ],
+      "tags": [
+        "freeze_synergy"
+      ]
+    },
+    {
+      "id": "M02",
+      "name": "자판기 령",
+      "name_en": "Vending Machine Ghost",
+      "category": "magic",
+      "cost": 1,
+      "description": "고장난 자판기에 깃든 잡귀. 동전을 넣으면 저주가 나온다.",
+      "ability": "임의 적 1명에게 2 데미지 + 공포 (1턴, 1칸 후퇴)",
+      "damage": 2,
+      "target": {
+        "type": "random",
+        "count": 1
+      },
+      "effects": [
+        {
+          "type": "fear",
+          "duration": 1,
+          "retreat_distance": 1
+        }
+      ],
+      "tags": [
+        "fear_synergy",
+        "trap_synergy"
+      ]
+    },
+    {
+      "id": "M03",
+      "name": "성냥팔이 이프리트",
+      "name_en": "Matchstick Ifrit",
+      "category": "magic",
+      "cost": 1,
+      "description": "성냥 한 개비로 불을 일으키는 꼬마 화염 정령. 불장난이 특기다.",
+      "ability": "적 1명에게 1 데미지 + 화상 (2턴, 턴당 1 도트)",
+      "damage": 1,
+      "target": {
+        "type": "front_row",
+        "count": 1
+      },
+      "effects": [
+        {
+          "type": "burn",
+          "stacks": 1,
+          "duration": 2,
+          "dot_per_stack": 1
+        }
+      ],
+      "tags": [
+        "burn_synergy"
+      ]
+    },
+    {
+      "id": "M04",
+      "name": "네온사인 위치 루미",
+      "name_en": "Neon Sign Witch Lumi",
+      "category": "magic",
+      "cost": 2,
+      "description": "번화가 네온빛을 흡수해 마법으로 쓰는 사이버 마녀. 밤에 더 강하다.",
+      "ability": "적 1명에게 3 데미지, 이전 턴에 마법 카드를 썼다면 +2 추가",
+      "damage": 3,
+      "target": {
+        "type": "front_row",
+        "count": 1
+      },
+      "effects": [],
+      "conditional": {
+        "if_prev_turn_magic": true,
+        "bonus_damage": 2
+      },
+      "tags": [
+        "magic_chain"
+      ]
+    },
+    {
+      "id": "M05",
+      "name": "포자술사 머쉬",
+      "name_en": "Spore Mage Mushi",
+      "category": "magic",
+      "cost": 2,
+      "description": "걸어다니는 거대 버섯. 포자를 뿌리면 적이 느려지고 서서히 썩는다.",
+      "ability": "지정 레인 앞 2명에게 1 데미지 + 중독 2중첩 (턴당 2 도트)",
+      "damage": 1,
+      "target": {
+        "type": "lane_front",
+        "count": 2
+      },
+      "effects": [
+        {
+          "type": "poison",
+          "stacks": 2,
+          "duration": 2,
+          "dot_per_stack": 1
+        }
+      ],
+      "tags": [
+        "poison_synergy",
+        "multi_hit"
+      ]
+    },
+    {
+      "id": "M06",
+      "name": "거울마녀 리플렉타",
+      "name_en": "Mirror Witch Reflecta",
+      "category": "magic",
+      "cost": 2,
+      "description": "수백 개의 거울 파편을 조종하는 마녀. 공격을 되돌린다.",
+      "ability": "적 1명에게 3 데미지 + 반사 (다음 턴 해당 적 공격 시 자신에게 2 데미지)",
+      "damage": 3,
+      "target": {
+        "type": "front_row",
+        "count": 1
+      },
+      "effects": [
+        {
+          "type": "reflect",
+          "reflect_damage": 2,
+          "duration": 1
+        }
+      ],
+      "tags": [
+        "reflect"
+      ]
+    },
+    {
+      "id": "M07",
+      "name": "별점술사 노바",
+      "name_en": "Astrologer Nova",
+      "category": "magic",
+      "cost": 2,
+      "description": "별자리의 힘으로 저주를 거는 점성술사. 양자리일 때가 제일 무섭다.",
+      "ability": "적 1명에게 2 데미지 + 표식 (다음 공격에 받는 데미지 +3)",
+      "damage": 2,
+      "target": {
+        "type": "front_row",
+        "count": 1
+      },
+      "effects": [
+        {
+          "type": "mark",
+          "bonus_damage_on_next_hit": 3
+        }
+      ],
+      "tags": [
+        "mark_synergy"
+      ]
+    },
+    {
+      "id": "M08",
+      "name": "번개도마뱀 볼택",
+      "name_en": "Thunder Lizard Voltac",
+      "category": "magic",
+      "cost": 2,
+      "description": "등에서 전기를 방출하는 거대 도마뱀. 물에 닿으면 연쇄한다.",
+      "ability": "적 1명에게 4 데미지 + 감전 (1턴, 행동 시 50% 실패)",
+      "damage": 4,
+      "target": {
+        "type": "front_row",
+        "count": 1
+      },
+      "effects": [
+        {
+          "type": "shock",
+          "duration": 1,
+          "fail_chance": 0.5
+        }
+      ],
+      "tags": [
+        "shock_synergy"
+      ]
+    },
+    {
+      "id": "M09",
+      "name": "바이러스 해커 제로",
+      "name_en": "Virus Hacker Zero",
+      "category": "magic",
+      "cost": 3,
+      "description": "전자기기의 정신을 해킹하는 AI 유령. 적의 시스템을 교란한다.",
+      "ability": "적 1명에게 4 데미지 + 감전 (1턴) + 방어력 -1 (2턴)",
+      "damage": 4,
+      "target": {
+        "type": "front_row",
+        "count": 1
+      },
+      "effects": [
+        {
+          "type": "shock",
+          "duration": 1
+        },
+        {
+          "type": "defense_down",
+          "value": -1,
+          "duration": 2
+        }
+      ],
+      "tags": [
+        "shock_synergy",
+        "armor_break"
+      ]
+    },
+    {
+      "id": "M10",
+      "name": "인형사 콜레트",
+      "name_en": "Puppeteer Colette",
+      "category": "magic",
+      "cost": 3,
+      "description": "실로 인형을 조종하는 소녀. 인형이 적 사이를 누비며 바늘을 꽂는다.",
+      "ability": "임의의 적 3명에게 각 2 데미지 + 표식",
+      "damage": 2,
+      "target": {
+        "type": "random",
+        "count": 3
+      },
+      "effects": [
+        {
+          "type": "mark",
+          "bonus_damage_on_next_hit": 3
+        }
+      ],
+      "tags": [
+        "mark_synergy",
+        "multi_hit",
+        "random"
+      ]
+    },
+    {
+      "id": "M11",
+      "name": "용암심장 볼카나",
+      "name_en": "Lava Heart Volcana",
+      "category": "magic",
+      "cost": 3,
+      "description": "가슴에 용암 코어가 박힌 화산 골렘. 감정이 격해지면 폭발한다.",
+      "ability": "지정 레인 앞열 전체 3 데미지 + 화상 (2턴, 턴당 2 도트)",
+      "damage": 3,
+      "target": {
+        "type": "lane_front",
+        "count": "all"
+      },
+      "effects": [
+        {
+          "type": "burn",
+          "stacks": 1,
+          "duration": 2,
+          "dot_per_stack": 2
+        }
+      ],
+      "tags": [
+        "burn_synergy",
+        "aoe"
+      ]
+    },
+    {
+      "id": "M12",
+      "name": "중력술사 그라비아",
+      "name_en": "Gravity Mage Gravia",
+      "category": "magic",
+      "cost": 3,
+      "description": "중력을 조작하는 가면 마법사. 적을 짓누르거나 하늘로 튕긴다.",
+      "ability": "적 1명에게 4 데미지 + 속박 (2턴, 이동 불가)",
+      "damage": 4,
+      "target": {
+        "type": "front_row",
+        "count": 1
+      },
+      "effects": [
+        {
+          "type": "bind",
+          "duration": 2
+        }
+      ],
+      "tags": [
+        "bind_synergy",
+        "position_control"
+      ]
+    },
+    {
+      "id": "M13",
+      "name": "꿈먹는 몽마",
+      "name_en": "Dream Eater Mongma",
+      "category": "magic",
+      "cost": 3,
+      "description": "잠든 적의 꿈을 먹어치우는 악몽 존재. 깨어나도 공포가 남는다.",
+      "ability": "모든 적에게 1 데미지 + 공포 (1턴)",
+      "damage": 1,
+      "target": {
+        "type": "all_enemies"
+      },
+      "effects": [
+        {
+          "type": "fear",
+          "duration": 1,
+          "retreat_distance": 1
+        }
+      ],
+      "tags": [
+        "fear_synergy",
+        "aoe",
+        "trap_synergy"
+      ]
+    },
+    {
+      "id": "M14",
+      "name": "성운술사 코스모",
+      "name_en": "Nebula Mage Cosmo",
+      "category": "magic",
+      "cost": 4,
+      "description": "우주 성운을 소환해 전장을 뒤덮는 천체 마법사. 시야를 지운다.",
+      "ability": "모든 적에게 3 데미지 + 명중률 -50% (1턴)",
+      "damage": 3,
+      "target": {
+        "type": "all_enemies"
+      },
+      "effects": [
+        {
+          "type": "accuracy_down",
+          "value": -50,
+          "duration": 1
+        }
+      ],
+      "tags": [
+        "aoe",
+        "debuff"
+      ]
+    },
+    {
+      "id": "M15",
+      "name": "서리 마녀 글라시아",
+      "name_en": "Frost Witch Glacia",
+      "category": "magic",
+      "cost": 4,
+      "description": "냉기 마법의 달인. 레인 전체를 얼려버리는 것쯤은 손가락 하나로 된다.",
+      "ability": "지정 레인 전체 빙결 (2턴) + 각 3 데미지",
+      "damage": 3,
+      "target": {
+        "type": "lane_all"
+      },
+      "effects": [
+        {
+          "type": "freeze",
+          "duration": 2
+        }
+      ],
+      "tags": [
+        "freeze_synergy",
+        "aoe"
+      ]
+    },
+    {
+      "id": "M16",
+      "name": "역병의사 페스트",
+      "name_en": "Plague Doctor Pest",
+      "category": "magic",
+      "cost": 4,
+      "description": "새 부리 가면 뒤에 끔찍한 독을 숨긴 역병 마법사.",
+      "ability": "모든 적에게 중독 2중첩 + 각 2 데미지",
+      "damage": 2,
+      "target": {
+        "type": "all_enemies"
+      },
+      "effects": [
+        {
+          "type": "poison",
+          "stacks": 2,
+          "duration": 2,
+          "dot_per_stack": 1
+        }
+      ],
+      "tags": [
+        "poison_synergy",
+        "aoe"
+      ]
+    },
+    {
+      "id": "M17",
+      "name": "공포인형 테러도르",
+      "name_en": "Terror Doll Terrordor",
+      "category": "magic",
+      "cost": 4,
+      "description": "버려진 놀이공원의 마스코트에 깃든 악령. 웃는 얼굴이 진짜 무섭다.",
+      "ability": "공포 상태 적 전체에게 5 데미지 + 공포 연장 (+1턴)",
+      "damage": 5,
+      "target": {
+        "type": "all_with_status",
+        "required_status": "fear"
+      },
+      "effects": [
+        {
+          "type": "fear",
+          "extend_duration": 1
+        }
+      ],
+      "tags": [
+        "fear_synergy",
+        "finisher"
+      ]
+    },
+    {
+      "id": "M18",
+      "name": "피의 백작부인 카밀라",
+      "name_en": "Blood Countess Camilla",
+      "category": "magic",
+      "cost": 5,
+      "description": "적의 생명력을 빨아들이는 뱀파이어 귀족. 우아하게 적을 말린다.",
+      "ability": "적 1명에게 8 데미지 + 가한 데미지의 50% HP 회복",
+      "damage": 8,
+      "target": {
+        "type": "front_row",
+        "count": 1
+      },
+      "effects": [
+        {
+          "type": "lifesteal",
+          "percent": 50
+        }
+      ],
+      "tags": [
+        "lifesteal",
+        "heavy_hitter"
+      ]
+    },
+    {
+      "id": "M19",
+      "name": "화염폭주 살바토레",
+      "name_en": "Blaze Burst Salvatore",
+      "category": "magic",
+      "cost": 5,
+      "description": "화상을 폭발로 전환하는 대화염술사. 화상 덱의 피날레 카드.",
+      "ability": "화상 상태 모든 적: 화상 폭발 (누적 도트 합 ×3 즉발) + 새 적 1명에게 4 데미지 + 화상",
+      "damage": 0,
+      "target": {
+        "type": "all_with_status",
+        "required_status": "burn"
+      },
+      "effects": [
+        {
+          "type": "burn_burst",
+          "multiplier": 3
+        },
+        {
+          "type": "bonus_attack",
+          "target": "new_enemy",
+          "damage": 4,
+          "apply_status": {
+            "type": "burn",
+            "stacks": 1,
+            "duration": 2,
+            "dot_per_stack": 1
+          }
+        }
+      ],
+      "tags": [
+        "burn_synergy",
+        "finisher",
+        "burn_burst"
+      ]
+    },
+    {
+      "id": "M20",
+      "name": "차원열쇠 오르피아",
+      "name_en": "Dimension Key Orphia",
+      "category": "magic",
+      "cost": 5,
+      "description": "차원의 문을 여는 열쇠를 가진 소녀. 문 너머에서 '무언가'가 손을 뻗는다.",
+      "ability": "적 1명 즉사 (HP 35% 이하), 미달 시 8 데미지 + 공포 (1턴)",
+      "damage": 8,
+      "target": {
+        "type": "any",
+        "count": 1
+      },
+      "effects": [
+        {
+          "type": "execute",
+          "threshold_percent": 35
+        },
+        {
+          "type": "fear",
+          "duration": 1,
+          "condition": "execute_failed"
+        }
+      ],
+      "tags": [
+        "execute",
+        "fear_synergy",
+        "finisher"
+      ]
+    },
+    {
+      "id": "M21",
+      "name": "심연마녀 세라피나",
+      "name_en": "Abyss Witch Seraphina",
+      "category": "magic",
+      "cost": 5,
+      "description": "심연의 어둠으로 모든 것을 부식시키는 마녀. 독의 끝판왕.",
+      "ability": "모든 적에게 중독 3중첩 + 각 3 데미지",
+      "damage": 3,
+      "target": {
+        "type": "all_enemies"
+      },
+      "effects": [
+        {
+          "type": "poison",
+          "stacks": 3,
+          "duration": 3,
+          "dot_per_stack": 1
+        }
+      ],
+      "tags": [
+        "poison_synergy",
+        "aoe",
+        "heavy_hitter"
+      ]
+    },
+    {
+      "id": "M22",
+      "name": "절대영도 칸나",
+      "name_en": "Absolute Zero Kanna",
+      "category": "magic",
+      "cost": 6,
+      "description": "세계를 얼음으로 뒤덮는 것이 꿈인 소녀. 꿈에 점점 가까워지고 있다.",
+      "ability": "모든 적 빙결 (2턴) + 모든 레인 전체 관통 4 데미지",
+      "damage": 4,
+      "target": {
+        "type": "all_enemies",
+        "pierce": true
+      },
+      "effects": [
+        {
+          "type": "freeze",
+          "duration": 2
+        }
+      ],
+      "tags": [
+        "freeze_synergy",
+        "aoe",
+        "ultimate"
+      ]
+    },
+    {
+      "id": "M23",
+      "name": "뇌신 라이쥬",
+      "name_en": "Thunder God Raiju",
+      "category": "magic",
+      "cost": 6,
+      "description": "번개를 육체로 두른 수호 짐승. 등장과 동시에 전장에 낙뢰가 쏟아진다.",
+      "ability": "모든 적에게 5 데미지 + 감전 (1턴)",
+      "damage": 5,
+      "target": {
+        "type": "all_enemies"
+      },
+      "effects": [
+        {
+          "type": "shock",
+          "duration": 1
+        }
+      ],
+      "tags": [
+        "shock_synergy",
+        "aoe",
+        "ultimate"
+      ]
+    },
+    {
+      "id": "M24",
+      "name": "태양로 솔라리스",
+      "name_en": "Solar Furnace Solaris",
+      "category": "magic",
+      "cost": 6,
+      "description": "항성 에너지를 직접 끌어다 쓰는 고대 병기. 가동하면 전장이 하얗게 된다.",
+      "ability": "모든 적에게 6 데미지 + 화상 적 추가 폭발 (누적 도트 ×2 즉발)",
+      "damage": 6,
+      "target": {
+        "type": "all_enemies"
+      },
+      "effects": [
+        {
+          "type": "burn_burst",
+          "multiplier": 2,
+          "condition": "burn"
+        }
+      ],
+      "tags": [
+        "burn_synergy",
+        "aoe",
+        "burn_burst",
+        "ultimate"
+      ]
+    },
+    {
+      "id": "M25",
+      "name": "현실왜곡자 에테르넬",
+      "name_en": "Reality Warper Eternel",
+      "category": "magic",
+      "cost": 7,
+      "description": "신의 경지에 오른 마법사. 현실 자체를 구부린다.",
+      "ability": "모든 적에게 8 데미지 + 기존 상태이상 제거 후 빙결 (2턴) 재부여",
+      "damage": 8,
+      "target": {
+        "type": "all_enemies"
+      },
+      "effects": [
+        {
+          "type": "purge_all_status"
+        },
+        {
+          "type": "freeze",
+          "duration": 2
+        }
+      ],
+      "tags": [
+        "freeze_synergy",
+        "aoe",
+        "ultimate"
+      ]
+    },
+    {
+      "id": "M26",
+      "name": "사막의 무희 자하라",
+      "name_en": "Desert Dancer Zahara",
+      "category": "magic",
+      "cost": 4,
+      "description": "베일 하나만 걸친 채 춤추면 모래폭풍이 일어나는 사막의 마법사. 춤이 멈추면 마법도 끝난다.",
+      "ability": "모든 적에게 2 데미지 + 속박 (1턴), 공포 상태 적에게 +3 추가",
+      "damage": 2,
+      "target": {
+        "type": "all_enemies"
+      },
+      "effects": [
+        {
+          "type": "bind",
+          "duration": 1
+        }
+      ],
+      "conditional": {
+        "if_target_has": "fear",
+        "bonus_damage": 3
+      },
+      "tags": [
+        "bind_synergy",
+        "fear_synergy",
+        "aoe",
+        "sexy"
+      ]
+    },
+    {
+      "id": "M27",
+      "name": "달빛 궁수 아르테미아",
+      "name_en": "Moonlight Archer Artemia",
+      "category": "magic",
+      "cost": 4,
+      "description": "투명한 달빛 드레스를 걸친 엘프 궁수. 활시위를 당기면 달빛이 화살이 되어 적을 꿰뚫는다.",
+      "ability": "위치 무관 적 1명에게 7 데미지 + 표식 부여, 이미 표식이면 빙결 (2턴) 추가",
+      "damage": 7,
+      "target": {
+        "type": "any",
+        "count": 1,
+        "range": "global"
+      },
+      "effects": [
+        {
+          "type": "mark",
+          "bonus_damage_on_next_hit": 3
+        }
+      ],
+      "conditional": {
+        "if_target_has": "mark",
+        "apply_instead": {
+          "type": "freeze",
+          "duration": 2
+        }
+      },
+      "tags": [
+        "mark_synergy",
+        "freeze_synergy",
+        "snipe",
+        "sexy"
+      ]
+    },
+    {
+      "id": "M28",
+      "name": "심홍의 소서리스 스칼렛",
+      "name_en": "Crimson Sorceress Scarlet",
+      "category": "magic",
+      "cost": 3,
+      "description": "몸에 감긴 붉은 문신이 곧 마법진. 피부가 드러날수록 마법이 강해진다는 저주를 받았다. 본인은 꽤 만족하는 듯.",
+      "ability": "적 1명에게 6 데미지 + 화상 2중첩 (턴당 2 도트), 이번 턴 마법 카드를 썼다면 +4 추가",
+      "damage": 6,
+      "target": {
+        "type": "front_row",
+        "count": 1
+      },
+      "effects": [
+        {
+          "type": "burn",
+          "stacks": 2,
+          "duration": 2,
+          "dot_per_stack": 1
+        }
+      ],
+      "conditional": {
+        "if_this_turn_magic": true,
+        "bonus_damage": 4
+      },
+      "tags": [
+        "burn_synergy",
+        "magic_chain",
+        "sexy"
+      ]
+    },
+    {
+      "id": "S01",
+      "name": "군의관 메디",
+      "name_en": "Field Medic Medi",
+      "category": "support",
+      "cost": 1,
+      "description": "전장을 뛰어다니는 쥐 군의관. 작지만 손이 빠르다.",
+      "ability": "플레이어 HP +3 회복",
+      "damage": 0,
+      "target": {
+        "type": "self"
+      },
+      "effects": [
+        {
+          "type": "heal",
+          "value": 3
+        }
+      ],
+      "tags": [
+        "heal"
+      ]
+    },
+    {
+      "id": "S02",
+      "name": "응원단장 폼퐁",
+      "name_en": "Cheerleader Pompom",
+      "category": "support",
+      "cost": 1,
+      "description": "양 수인 치어리더. 응원만으로 사기를 올린다.",
+      "ability": "이번 턴 아군 카드의 공격력 +1",
+      "damage": 0,
+      "target": {
+        "type": "team"
+      },
+      "effects": [
+        {
+          "type": "atk_up",
+          "value": 1,
+          "duration": "this_turn"
+        }
+      ],
+      "tags": [
+        "team_buff"
+      ]
+    },
+    {
+      "id": "S03",
+      "name": "방패벌레 쉴디",
+      "name_en": "Shield Beetle Shieldy",
+      "category": "support",
+      "cost": 1,
+      "description": "등딱지가 강철보다 단단한 딱정벌레. 아군 앞에 떡하니 선다.",
+      "ability": "이번 턴 플레이어가 받는 피해 -3",
+      "damage": 0,
+      "target": {
+        "type": "self"
+      },
+      "effects": [
+        {
+          "type": "shield",
+          "value": 3,
+          "duration": "this_turn"
+        }
+      ],
+      "tags": [
+        "defense"
+      ]
+    },
+    {
+      "id": "S04",
+      "name": "정찰견 스카우트",
+      "name_en": "Scout Dog Scout",
+      "category": "support",
+      "cost": 1,
+      "description": "코가 초자연적으로 예민한 기계 사냥개. 적의 약점을 찾아낸다.",
+      "ability": "적 1명에게 표식 부여 + 해당 적 정보 공개 (HP·능력)",
+      "damage": 0,
+      "target": {
+        "type": "any",
+        "count": 1
+      },
+      "effects": [
+        {
+          "type": "mark",
+          "bonus_damage_on_next_hit": 3
+        },
+        {
+          "type": "reveal"
+        }
+      ],
+      "tags": [
+        "mark_synergy",
+        "reveal"
+      ]
+    },
+    {
+      "id": "S05",
+      "name": "군악대장 마르시아",
+      "name_en": "Military Band Leader Marcia",
+      "category": "support",
+      "cost": 2,
+      "description": "북을 두드리면 아군의 피가 끓어오른다. 전투 전 반드시 연주한다.",
+      "ability": "이번 턴 물리 카드 데미지 +2, 마법 카드 데미지 +1",
+      "damage": 0,
+      "target": {
+        "type": "team"
+      },
+      "effects": [
+        {
+          "type": "atk_up",
+          "physical_bonus": 2,
+          "magic_bonus": 1,
+          "duration": "this_turn"
+        }
+      ],
+      "tags": [
+        "team_buff"
+      ]
+    },
+    {
+      "id": "S06",
+      "name": "연금술사 플라스크",
+      "name_en": "Alchemist Flask",
+      "category": "support",
+      "cost": 2,
+      "description": "물약 하나로 전세를 뒤집는 연금술사 두꺼비. 항상 시험관을 들고 다닌다.",
+      "ability": "아군 HP +4 회복 + 상태이상 1개 제거 (아군 디버프)",
+      "damage": 0,
+      "target": {
+        "type": "self"
+      },
+      "effects": [
+        {
+          "type": "heal",
+          "value": 4
+        },
+        {
+          "type": "cleanse",
+          "count": 1
+        }
+      ],
+      "tags": [
+        "heal",
+        "cleanse"
+      ]
+    },
+    {
+      "id": "S07",
+      "name": "증폭기 앰프",
+      "name_en": "Amplifier Amp",
+      "category": "support",
+      "cost": 2,
+      "description": "주변의 에너지를 증폭하는 수정 골렘. 마법사 옆에 있으면 마법이 강해진다.",
+      "ability": "이번 턴 마법 카드 데미지 +3, 상태이상 지속시간 +1턴",
+      "damage": 0,
+      "target": {
+        "type": "team"
+      },
+      "effects": [
+        {
+          "type": "atk_up",
+          "magic_bonus": 3,
+          "duration": "this_turn"
+        },
+        {
+          "type": "status_extend",
+          "extend_duration": 1
+        }
+      ],
+      "tags": [
+        "team_buff",
+        "status_extend"
+      ]
+    },
+    {
+      "id": "S08",
+      "name": "전술가 펜리스",
+      "name_en": "Tactician Fenris",
+      "category": "support",
+      "cost": 2,
+      "description": "안경 쓴 여우 전략가. 전장을 한눈에 꿰뚫어 본다.",
+      "ability": "이번 턴 사용하는 카드 1장의 코스트 -1 (최소 1)",
+      "damage": 0,
+      "target": {
+        "type": "team"
+      },
+      "effects": [
+        {
+          "type": "cost_reduce",
+          "value": -1,
+          "count": 1
+        }
+      ],
+      "tags": [
+        "cost_reduce",
+        "resource"
+      ]
+    },
+    {
+      "id": "S09",
+      "name": "대장장이 이그니스",
+      "name_en": "Blacksmith Ignis",
+      "category": "support",
+      "cost": 2,
+      "description": "용암으로 무기를 벼리는 대장장이 드워프. 무기에 속성을 입힌다.",
+      "ability": "이번 턴 다음 물리 공격에 화상 (2턴, 턴당 2 도트) 추가 부여",
+      "damage": 0,
+      "target": {
+        "type": "team"
+      },
+      "effects": [
+        {
+          "type": "imbue",
+          "apply_to": "next_physical",
+          "status": {
+            "type": "burn",
+            "stacks": 1,
+            "duration": 2,
+            "dot_per_stack": 2
+          }
+        }
+      ],
+      "tags": [
+        "burn_synergy",
+        "imbue"
+      ]
+    },
+    {
+      "id": "S10",
+      "name": "독무화과 비올라",
+      "name_en": "Poison Fig Viola",
+      "category": "support",
+      "cost": 2,
+      "description": "아름다운 꽃을 피우는 식물 정령. 꽃향기에 독이 섞여있다.",
+      "ability": "적 전체에게 중독 1중첩 부여 (데미지 없음)",
+      "damage": 0,
+      "target": {
+        "type": "all_enemies"
+      },
+      "effects": [
+        {
+          "type": "poison",
+          "stacks": 1,
+          "duration": 2,
+          "dot_per_stack": 1
+        }
+      ],
+      "tags": [
+        "poison_synergy",
+        "aoe"
+      ]
+    },
+    {
+      "id": "S11",
+      "name": "시간조율사 크로노",
+      "name_en": "Time Tuner Chrono",
+      "category": "support",
+      "cost": 3,
+      "description": "시간의 흐름을 미세하게 조율하는 시계 정령. 동료의 행동을 앞당긴다.",
+      "ability": "추가 드로우 1장 + 드로우한 카드의 코스트 -1 (이번 턴만)",
+      "damage": 0,
+      "target": {
+        "type": "self"
+      },
+      "effects": [
+        {
+          "type": "draw",
+          "count": 1
+        },
+        {
+          "type": "cost_reduce",
+          "value": -1,
+          "apply_to": "drawn_card"
+        }
+      ],
+      "tags": [
+        "draw",
+        "cost_reduce",
+        "resource"
+      ]
+    },
+    {
+      "id": "S12",
+      "name": "전장사령관 아이언사이드",
+      "name_en": "Field Commander Ironside",
+      "category": "support",
+      "cost": 3,
+      "description": "퇴역 장군의 혼이 깃든 갑옷. 지휘하는 것이 존재 이유다.",
+      "ability": "이번 턴 모든 카드 데미지 +2 + 플레이어 피해 -2",
+      "damage": 0,
+      "target": {
+        "type": "team"
+      },
+      "effects": [
+        {
+          "type": "atk_up",
+          "value": 2,
+          "duration": "this_turn"
+        },
+        {
+          "type": "shield",
+          "value": 2,
+          "duration": "this_turn"
+        }
+      ],
+      "tags": [
+        "team_buff",
+        "defense"
+      ]
+    },
+    {
+      "id": "S13",
+      "name": "피의 계약자 닥터 파우스트",
+      "name_en": "Blood Contractor Dr. Faust",
+      "category": "support",
+      "cost": 0,
+      "description": "대가를 치르면 무엇이든 해주는 악마 변호사.",
+      "ability": "플레이어 HP -3 지불 → 이번 턴 에너지 +3 획득",
+      "damage": 0,
+      "target": {
+        "type": "self"
+      },
+      "effects": [
+        {
+          "type": "self_damage",
+          "value": 3
+        },
+        {
+          "type": "energy_gain",
+          "value": 3
+        }
+      ],
+      "tags": [
+        "energy_gain",
+        "self_penalty",
+        "resource"
+      ]
+    },
+    {
+      "id": "S14",
+      "name": "부활술사 라자루스",
+      "name_en": "Reviver Lazarus",
+      "category": "support",
+      "cost": 3,
+      "description": "한 번 쓴 카드를 되살리는 네크로맨서 까마귀. 재활용의 왕.",
+      "ability": "이번 전투에서 사용한 카드 1장을 패로 복귀 (랜덤)",
+      "damage": 0,
+      "target": {
+        "type": "self"
+      },
+      "effects": [
+        {
+          "type": "recycle",
+          "from": "discard_pile",
+          "count": 1,
+          "selection": "random"
+        }
+      ],
+      "tags": [
+        "recycle",
+        "resource"
+      ]
+    },
+    {
+      "id": "S15",
+      "name": "성역의 수호자 아이기스",
+      "name_en": "Sanctuary Guardian Aegis",
+      "category": "support",
+      "cost": 4,
+      "description": "빛의 장벽으로 아군을 감싸는 수호 천사. 최후의 방어막이다.",
+      "ability": "이번 턴 플레이어가 받는 모든 피해 무효 + HP +2 회복",
+      "damage": 0,
+      "target": {
+        "type": "self"
+      },
+      "effects": [
+        {
+          "type": "immune",
+          "duration": "this_turn"
+        },
+        {
+          "type": "heal",
+          "value": 2
+        }
+      ],
+      "tags": [
+        "immune",
+        "heal",
+        "defense"
+      ]
+    },
+    {
+      "id": "S16",
+      "name": "전장의 디바 루시엔",
+      "name_en": "Battlefield Diva Lucienne",
+      "category": "support",
+      "cost": 3,
+      "description": "한쪽 어깨가 드러난 군복을 입은 전장의 가수. 노래 한 곡이면 아군 전투력이 급상승한다. 적도 잠시 넋을 놓는다.",
+      "ability": "이번 턴 모든 카드 데미지 +2 + 적 전체 명중률 -30% (1턴)",
+      "damage": 0,
+      "target": {
+        "type": "team"
+      },
+      "effects": [
+        {
+          "type": "atk_up",
+          "value": 2,
+          "duration": "this_turn"
+        },
+        {
+          "type": "accuracy_down",
+          "value": -30,
+          "duration": 1,
+          "target": "all_enemies"
+        }
+      ],
+      "tags": [
+        "team_buff",
+        "debuff",
+        "sexy"
+      ]
+    },
+    {
+      "id": "S17",
+      "name": "비밀정보원 벨벳",
+      "name_en": "Secret Agent Velvet",
+      "category": "support",
+      "cost": 2,
+      "description": "보디수트 차림의 고양이 수인 스파이. 교란과 정보 수집을 동시에 해낸다. 꼬리로 적을 홀린다.",
+      "ability": "적 2명에게 표식 부여 + 추가 드로우 1장 + 드로우 카드 코스트 -1",
+      "damage": 0,
+      "target": {
+        "type": "any",
+        "count": 2
+      },
+      "effects": [
+        {
+          "type": "mark",
+          "bonus_damage_on_next_hit": 3
+        },
+        {
+          "type": "draw",
+          "count": 1
+        },
+        {
+          "type": "cost_reduce",
+          "value": -1,
+          "apply_to": "drawn_card"
+        }
+      ],
+      "tags": [
+        "mark_synergy",
+        "draw",
+        "cost_reduce",
+        "sexy"
+      ]
+    },
+    {
+      "id": "T01",
+      "name": "독가시 덫",
+      "name_en": "Poison Thorn Trap",
+      "category": "trap",
+      "cost": 1,
+      "description": "바닥에 깔린 독 가시. 밟으면 아프고 느려진다.",
+      "ability": "설치: 지정 레인 1칸. 적 이동 시 2 데미지 + 중독 1중첩",
+      "damage": 2,
+      "target": {
+        "type": "deploy",
+        "lane": "select",
+        "cells": 1
+      },
+      "trigger": "on_enter",
+      "effects": [
+        {
+          "type": "poison",
+          "stacks": 1,
+          "duration": 2,
+          "dot_per_stack": 1
+        }
+      ],
+      "tags": [
+        "trap",
+        "poison_synergy"
+      ]
+    },
+    {
+      "id": "T02",
+      "name": "냉기 지뢰",
+      "name_en": "Frost Mine",
+      "category": "trap",
+      "cost": 1,
+      "description": "밟으면 주변이 얼어붙는 마법 지뢰.",
+      "ability": "설치: 지정 레인 1칸. 적 진입 시 2 데미지 + 빙결 (1턴)",
+      "damage": 2,
+      "target": {
+        "type": "deploy",
+        "lane": "select",
+        "cells": 1
+      },
+      "trigger": "on_enter",
+      "effects": [
+        {
+          "type": "freeze",
+          "duration": 1
+        }
+      ],
+      "tags": [
+        "trap",
+        "freeze_synergy"
+      ]
+    },
+    {
+      "id": "T03",
+      "name": "화염 장벽",
+      "name_en": "Flame Wall",
+      "category": "trap",
+      "cost": 2,
+      "description": "레인을 가로막는 불의 벽. 통과하려면 대가를 치러야 한다.",
+      "ability": "설치: 지정 레인. 2턴 지속. 통과 적에게 3 데미지 + 화상 (1턴 2도트)",
+      "damage": 3,
+      "target": {
+        "type": "deploy",
+        "lane": "select"
+      },
+      "trigger": "on_pass",
+      "duration": 2,
+      "effects": [
+        {
+          "type": "burn",
+          "stacks": 1,
+          "duration": 1,
+          "dot_per_stack": 2
+        }
+      ],
+      "tags": [
+        "trap",
+        "burn_synergy",
+        "persistent"
+      ]
+    },
+    {
+      "id": "T04",
+      "name": "거미줄 그물",
+      "name_en": "Spider Web Net",
+      "category": "trap",
+      "cost": 2,
+      "description": "네스토르가 뿌려놓은 끈적한 거미줄. 걸리면 꼼짝 못 한다.",
+      "ability": "설치: 지정 레인. 적 진입 시 속박 (2턴) + 1 데미지",
+      "damage": 1,
+      "target": {
+        "type": "deploy",
+        "lane": "select"
+      },
+      "trigger": "on_enter",
+      "effects": [
+        {
+          "type": "bind",
+          "duration": 2
+        }
+      ],
+      "tags": [
+        "trap",
+        "bind_synergy"
+      ]
+    },
+    {
+      "id": "T05",
+      "name": "경고의 까마귀",
+      "name_en": "Warning Crow",
+      "category": "trap",
+      "cost": 2,
+      "description": "적이 접근하면 울어대는 기계 까마귀. 울음소리에 공포가 실린다.",
+      "ability": "설치: 지정 레인. 적 진입 시 공포 (1턴) + 적 위치 정보 공개",
+      "damage": 0,
+      "target": {
+        "type": "deploy",
+        "lane": "select"
+      },
+      "trigger": "on_enter",
+      "effects": [
+        {
+          "type": "fear",
+          "duration": 1,
+          "retreat_distance": 1
+        },
+        {
+          "type": "reveal"
+        }
+      ],
+      "tags": [
+        "trap",
+        "fear_synergy",
+        "reveal"
+      ]
+    },
+    {
+      "id": "T06",
+      "name": "감전 바리케이드",
+      "name_en": "Shock Barricade",
+      "category": "trap",
+      "cost": 3,
+      "description": "전기가 흐르는 철조망 바리케이드. 부수려 하면 감전된다.",
+      "ability": "설치: 지정 레인. 3턴 지속. 적 진입 시 3 데미지 + 감전 (1턴)",
+      "damage": 3,
+      "target": {
+        "type": "deploy",
+        "lane": "select"
+      },
+      "trigger": "on_enter",
+      "duration": 3,
+      "effects": [
+        {
+          "type": "shock",
+          "duration": 1
+        }
+      ],
+      "tags": [
+        "trap",
+        "shock_synergy",
+        "persistent"
+      ]
+    },
+    {
+      "id": "T07",
+      "name": "독안개 발생기",
+      "name_en": "Poison Fog Generator",
+      "category": "trap",
+      "cost": 3,
+      "description": "독무화과 비올라가 개량한 독안개 장치. 넓은 범위를 오염시킨다.",
+      "ability": "설치: 지정 레인 + 좌우 인접. 3턴간 매 턴 해당 레인 모든 적에게 중독 1중첩",
+      "damage": 0,
+      "target": {
+        "type": "deploy",
+        "lane": "select_plus_adjacent"
+      },
+      "trigger": "per_turn",
+      "duration": 3,
+      "effects": [
+        {
+          "type": "poison",
+          "stacks": 1,
+          "duration": 2,
+          "dot_per_stack": 1
+        }
+      ],
+      "tags": [
+        "trap",
+        "poison_synergy",
+        "aoe",
+        "persistent"
+      ]
+    },
+    {
+      "id": "T08",
+      "name": "그림자 포탈",
+      "name_en": "Shadow Portal",
+      "category": "trap",
+      "cost": 3,
+      "description": "적을 무작위 위치로 순간이동시키는 차원 균열. 전열을 흐트러뜨린다.",
+      "ability": "설치: 지정 레인. 적 진입 시 무작위 레인 맨 뒤로 강제이동 + 공포 (1턴)",
+      "damage": 0,
+      "target": {
+        "type": "deploy",
+        "lane": "select"
+      },
+      "trigger": "on_enter",
+      "effects": [
+        {
+          "type": "teleport",
+          "destination": "random_lane_back"
+        },
+        {
+          "type": "fear",
+          "duration": 1
+        }
+      ],
+      "tags": [
+        "trap",
+        "position_control",
+        "fear_synergy"
+      ]
+    },
+    {
+      "id": "T09",
+      "name": "자폭 기뢰밭",
+      "name_en": "Mine Field",
+      "category": "trap",
+      "cost": 4,
+      "description": "밟으면 연쇄 폭발하는 기뢰밭. 한 번 터지면 주변도 같이 간다.",
+      "ability": "설치: 지정 레인 3칸. 적 진입 시 5 데미지 + 인접 칸 적에게 3 데미지",
+      "damage": 5,
+      "target": {
+        "type": "deploy",
+        "lane": "select",
+        "cells": 3
+      },
+      "trigger": "on_enter",
+      "effects": [
+        {
+          "type": "splash",
+          "adjacent_cells": true,
+          "splash_damage": 3
+        }
+      ],
+      "tags": [
+        "trap",
+        "splash",
+        "heavy_hitter"
+      ]
+    },
+    {
+      "id": "T10",
+      "name": "심판의 마법진",
+      "name_en": "Judgment Magic Circle",
+      "category": "trap",
+      "cost": 4,
+      "description": "마법진 위의 적에게 천벌이 내린다. 상태이상 적에게 더 강하다.",
+      "ability": "설치: 지정 레인 2칸. 3턴 지속. 매 턴 위의 적에게 3 데미지, 상태이상 적에게 +3 추가",
+      "damage": 3,
+      "target": {
+        "type": "deploy",
+        "lane": "select",
+        "cells": 2
+      },
+      "trigger": "per_turn",
+      "duration": 3,
+      "effects": [],
+      "conditional": {
+        "if_target_has": "any_status",
+        "bonus_damage": 3
+      },
+      "tags": [
+        "trap",
+        "persistent",
+        "status_synergy"
+      ]
+    },
+    {
+      "id": "U01",
+      "name": "야바위꾼 셔플",
+      "name_en": "Hustler Shuffle",
+      "category": "utility",
+      "cost": 1,
+      "description": "적의 위치를 마음대로 바꾸는 사기꾼 원숭이.",
+      "ability": "적 2명의 위치를 서로 교환",
+      "damage": 0,
+      "target": {
+        "type": "any",
+        "count": 2
+      },
+      "effects": [
+        {
+          "type": "swap_positions"
+        }
+      ],
+      "tags": [
+        "position_control"
+      ]
+    },
+    {
+      "id": "U02",
+      "name": "도굴꾼 디거",
+      "name_en": "Grave Robber Digger",
+      "category": "utility",
+      "cost": 1,
+      "description": "전장에서 쓸 만한 걸 주워 오는 두더지. 운이 좋으면 대박이다.",
+      "ability": "카드 1장 드로우 (패가 가득이면 에너지 +1 대신)",
+      "damage": 0,
+      "target": {
+        "type": "self"
+      },
+      "effects": [
+        {
+          "type": "draw",
+          "count": 1,
+          "overflow": {
+            "type": "energy_gain",
+            "value": 1
+          }
+        }
+      ],
+      "tags": [
+        "draw",
+        "resource"
+      ]
+    },
+    {
+      "id": "U03",
+      "name": "전력질주 부스터",
+      "name_en": "Sprint Booster",
+      "category": "utility",
+      "cost": 0,
+      "description": "에너지를 쥐어짜는 과부하 장치. 다음 턴이 힘들어진다.",
+      "ability": "이번 턴 에너지 +2, 다음 턴 에너지 -1",
+      "damage": 0,
+      "target": {
+        "type": "self"
+      },
+      "effects": [
+        {
+          "type": "energy_gain",
+          "value": 2,
+          "duration": "this_turn"
+        },
+        {
+          "type": "energy_penalty",
+          "value": -1,
+          "duration": "next_turn"
+        }
+      ],
+      "tags": [
+        "energy_gain",
+        "self_penalty",
+        "resource"
+      ]
+    },
+    {
+      "id": "U04",
+      "name": "해체공 렌치",
+      "name_en": "Dismantler Wrench",
+      "category": "utility",
+      "cost": 2,
+      "description": "적의 장비와 버프를 뜯어내는 기계공 게. 집게가 정밀하다.",
+      "ability": "적 1명의 버프 전체 제거 + 방어력 0으로 초기화",
+      "damage": 0,
+      "target": {
+        "type": "any",
+        "count": 1
+      },
+      "effects": [
+        {
+          "type": "purge_buffs"
+        },
+        {
+          "type": "defense_reset",
+          "value": 0
+        }
+      ],
+      "tags": [
+        "dispel",
+        "armor_break"
+      ]
+    },
+    {
+      "id": "U05",
+      "name": "연막탄 스모크",
+      "name_en": "Smoke Bomb Smoke",
+      "category": "utility",
+      "cost": 2,
+      "description": "시야를 차단하는 연막을 피우는 닌자 두꺼비.",
+      "ability": "지정 레인 2턴간 은폐: 해당 레인 아군은 원거리 공격 대상이 되지 않음",
+      "damage": 0,
+      "target": {
+        "type": "lane_select"
+      },
+      "effects": [
+        {
+          "type": "stealth",
+          "duration": 2
+        }
+      ],
+      "tags": [
+        "stealth",
+        "defense"
+      ]
+    },
+    {
+      "id": "U06",
+      "name": "복제술사 미러",
+      "name_en": "Clone Mage Mirror",
+      "category": "utility",
+      "cost": 3,
+      "description": "마지막에 사용한 카드를 그대로 복제하는 거울 정령.",
+      "ability": "이전 턴에 사용한 카드 1장의 효과를 그대로 재발동 (코스트 없이)",
+      "damage": 0,
+      "target": {
+        "type": "self"
+      },
+      "effects": [
+        {
+          "type": "replay_last_card",
+          "cost_override": 0
+        }
+      ],
+      "tags": [
+        "replay",
+        "combo"
+      ]
+    },
+    {
+      "id": "U07",
+      "name": "저주인형 부두",
+      "name_en": "Voodoo Doll Voodoo",
+      "category": "utility",
+      "cost": 3,
+      "description": "대상에게 저주를 걸어 받는 피해를 증폭시키는 인형.",
+      "ability": "적 1명에게 저주 부여: 3턴간 받는 모든 데미지 +2",
+      "damage": 0,
+      "target": {
+        "type": "any",
+        "count": 1
+      },
+      "effects": [
+        {
+          "type": "curse",
+          "incoming_damage_bonus": 2,
+          "duration": 3
+        }
+      ],
+      "tags": [
+        "debuff",
+        "damage_amplify"
+      ]
+    },
+    {
+      "id": "U08",
+      "name": "차원주머니 포켓",
+      "name_en": "Dimension Pocket",
+      "category": "utility",
+      "cost": 2,
+      "description": "사용한 함정·설치 카드를 회수하는 차원 주머니.",
+      "ability": "필드의 함정/설치 카드 1개 회수 → 패로 복귀 (재사용 가능)",
+      "damage": 0,
+      "target": {
+        "type": "field_trap"
+      },
+      "effects": [
+        {
+          "type": "recycle",
+          "from": "field_trap",
+          "count": 1
+        }
+      ],
+      "tags": [
+        "recycle",
+        "trap_synergy"
+      ]
+    },
+    {
+      "id": "U09",
+      "name": "위치교란 텔레포터",
+      "name_en": "Position Scrambler Teleporter",
+      "category": "utility",
+      "cost": 2,
+      "description": "아군과 적의 위치를 뒤섞는 공간 왜곡 장치.",
+      "ability": "지정 레인 모든 적을 1칸 뒤로 밀기 + 함정 위 이동 시 즉시 발동",
+      "damage": 0,
+      "target": {
+        "type": "lane_select"
+      },
+      "effects": [
+        {
+          "type": "knockback",
+          "distance": 1,
+          "target": "all_in_lane"
+        },
+        {
+          "type": "trigger_traps_on_move"
+        }
+      ],
+      "tags": [
+        "knockback",
+        "trap_synergy",
+        "position_control"
+      ]
+    },
+    {
+      "id": "U10",
+      "name": "과부하 코일",
+      "name_en": "Overload Coil",
+      "category": "utility",
+      "cost": 3,
+      "description": "상태이상의 남은 턴을 한꺼번에 폭발시키는 에너지 코일.",
+      "ability": "적 1명의 모든 상태이상 즉시 소멸 → 남은 턴 수 합 × 2 즉발 데미지",
+      "damage": 0,
+      "target": {
+        "type": "any",
+        "count": 1
+      },
+      "effects": [
+        {
+          "type": "status_burst",
+          "damage_per_remaining_turn": 2,
+          "purge": true
+        }
+      ],
+      "tags": [
+        "status_burst",
+        "finisher"
+      ]
+    },
+    {
+      "id": "U11",
+      "name": "전술철수 리트리트",
+      "name_en": "Tactical Retreat",
+      "category": "utility",
+      "cost": 3,
+      "description": "위기 상황에서 전열을 재정비하는 퇴각 명령.",
+      "ability": "필드의 모든 아군 함정 회수 + 플레이어 HP +3 + 카드 1장 드로우",
+      "damage": 0,
+      "target": {
+        "type": "self"
+      },
+      "effects": [
+        {
+          "type": "recycle",
+          "from": "all_field_traps"
+        },
+        {
+          "type": "heal",
+          "value": 3
+        },
+        {
+          "type": "draw",
+          "count": 1
+        }
+      ],
+      "tags": [
+        "recycle",
+        "heal",
+        "draw",
+        "trap_synergy"
+      ]
+    },
+    {
+      "id": "U12",
+      "name": "영혼고리 소울링크",
+      "name_en": "Soul Link",
+      "category": "utility",
+      "cost": 3,
+      "description": "두 적의 운명을 연결한다. 한쪽이 맞으면 다른 쪽도 아프다.",
+      "ability": "적 2명을 연결 (3턴): 한쪽이 받는 데미지의 50%를 다른 쪽도 받음",
+      "damage": 0,
+      "target": {
+        "type": "any",
+        "count": 2
+      },
+      "effects": [
+        {
+          "type": "soul_link",
+          "damage_share_percent": 50,
+          "duration": 3
+        }
+      ],
+      "tags": [
+        "damage_amplify",
+        "combo"
+      ]
+    },
+    {
+      "id": "U13",
+      "name": "감염확산 팬데믹",
+      "name_en": "Infection Spread Pandemic",
+      "category": "utility",
+      "cost": 3,
+      "description": "중독 상태를 주변 적에게 전염시키는 역병 바이러스.",
+      "ability": "중독 상태 적 전원의 중독을 인접 적에게 복사 (중첩 수 유지)",
+      "damage": 0,
+      "target": {
+        "type": "all_with_status",
+        "required_status": "poison"
+      },
+      "effects": [
+        {
+          "type": "spread_status",
+          "status": "poison",
+          "spread_to": "adjacent"
+        }
+      ],
+      "tags": [
+        "poison_synergy",
+        "aoe"
+      ]
+    },
+    {
+      "id": "U14",
+      "name": "절대방어 포트리스",
+      "name_en": "Absolute Defense Fortress",
+      "category": "utility",
+      "cost": 4,
+      "description": "이번 턴 모든 피해를 막고 다음 턴을 준비하는 방어 태세.",
+      "ability": "이번 턴 피해 완전 무효 + 다음 턴 시작 시 카드 2장 드로우",
+      "damage": 0,
+      "target": {
+        "type": "self"
+      },
+      "effects": [
+        {
+          "type": "immune",
+          "duration": "this_turn"
+        },
+        {
+          "type": "draw",
+          "count": 2,
+          "timing": "next_turn_start"
+        }
+      ],
+      "tags": [
+        "immune",
+        "draw",
+        "defense"
+      ]
+    },
+    {
+      "id": "U15",
+      "name": "최후통첩 울티마텀",
+      "name_en": "Ultimatum",
+      "category": "utility",
+      "cost": -1,
+      "cost_type": "all_remaining",
+      "description": "모든 것을 걸고 승부하는 최종 카드. 남은 에너지를 전부 태운다.",
+      "ability": "남은 에너지 전부 소모 → 소모한 에너지 × 4 데미지를 적 1명에게",
+      "damage": 0,
+      "damage_formula": "remaining_energy * 4",
+      "target": {
+        "type": "any",
+        "count": 1
+      },
+      "effects": [
+        {
+          "type": "consume_all_energy"
+        }
+      ],
+      "tags": [
+        "finisher",
+        "resource"
+      ]
+    },
+    {
+      "id": "U16",
+      "name": "매혹술사 세이렌",
+      "name_en": "Enchantress Siren",
+      "category": "utility",
+      "cost": 3,
+      "description": "인어 형태의 마법 생물. 노래를 들은 적은 스스로 걸어온다. 가까이 올수록 위험한 건 자신이라는 걸 깨닫지 못한다.",
+      "ability": "지정 레인 적 전원을 1칸 앞으로 강제이동 + 이동한 적에게 각 1 데미지, 함정 칸으로 이동 시 즉시 발동",
+      "damage": 1,
+      "target": {
+        "type": "lane_select",
+        "count": "all"
+      },
+      "effects": [
+        {
+          "type": "pull",
+          "distance": 1,
+          "target": "all_in_lane"
+        },
+        {
+          "type": "trigger_traps_on_move"
+        }
+      ],
+      "tags": [
+        "pull",
+        "trap_synergy",
+        "position_control",
+        "sexy"
+      ]
+    },
+    {
+      "id": "U17",
+      "name": "운명의 딜러 포춘",
+      "name_en": "Fortune Dealer Fortune",
+      "category": "utility",
+      "cost": 4,
+      "description": "가슴골이 깊게 파인 턱시도를 입은 카지노 딜러. 운명을 카드 한 장에 건다. 그녀가 돌린 룰렛은 반드시 원하는 곳에 멈춘다.",
+      "ability": "카드 3장 드로우 후 1장 선택해 즉시 사용 (코스트 무시), 나머지 2장 버림",
+      "damage": 0,
+      "target": {
+        "type": "self"
+      },
+      "effects": [
+        {
+          "type": "draw",
+          "count": 3
+        },
+        {
+          "type": "select_and_play",
+          "free_cost": true,
+          "discard_remaining": 2
+        }
+      ],
+      "tags": [
+        "draw",
+        "resource",
+        "combo",
+        "sexy"
+      ]
+    }
+  ]
+}
